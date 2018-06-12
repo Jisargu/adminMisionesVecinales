@@ -1,0 +1,74 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+    <h1>Crear misiones</h1>
+  <div class="row justify-content-center">
+      
+    <div class="col-10">
+      
+      <form id="formulario" ngNativeValidate (submit)="enviar()">
+
+        <div class="form-row">
+
+          <div class="col-md-6 mb-3">
+
+            <label for="validationDefault01">Fecha deseada de realización</label>
+            <input type="text" class="form-control" id="validationDefault01" name="fechaDeseada"  maxlength="50"
+              [(ngModel)]="fechaDeseada" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="validationDefault02">Titulo</label>
+            <input type="text" class="form-control" id="validationDefault02" name="tituloMision"  maxlength="50"
+              [(ngModel)]="tituloMision" required>
+          </div>
+        </div>
+        <div class="form-row">
+
+          <div class="col-md-12 mb-3">
+
+            <label for="validationDefault01">Contenido de la misión</label>
+            <textarea class="form-control" id="validationDefaultMessage" name="mensajeContacto" rows="3" maxlength="500" [(ngModel)]="contenidoMision" required></textarea>
+          </div>
+          
+        </div>
+        <div class="form-row">
+          
+          <div class="col-md-6 mb-3">
+            <label for="validationDefault02">Recompensa</label>
+            <input type="text" class="form-control" id="validationDefault02" name="apellidoContacto"  maxlength="50"
+              [(ngModel)]="recompensaMision" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+
+            <label for="validationDefault01">Fecha de publicación</label>
+            <input type="text" class="form-control" id="validationDefault01" name="nombreContacto"  maxlength="50"
+              [(ngModel)]="fechaPublicacionMision" required>
+          </div>
+
+        </div>
+
+        <button class="btn btn-primary mt-3" type="submit">Crear Misión</button>
+      </form>
+
+    </div>
+  </div>
+
+  <h1>Contactos</h1>
+  <div class="row justify-content-center mt-5">
+    
+    <div class="col-10" *ngFor="let contacto of contactos | async">
+    <ul>
+      <li>
+        <strong>Nombre:</strong> {{ contacto.nombre}}
+        <br>
+        <strong>Apellido:</strong> {{contacto.apellido}}
+        <br>
+        <strong>Correo:</strong> {{ contacto.correo}}
+        <br>
+        <strong>Mensaje:</strong> {{ contacto.mensaje}}
+        <br>
+      </li>
+    </ul>
+    </div>
+  </div>
+</div>
